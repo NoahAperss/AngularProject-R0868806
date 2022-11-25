@@ -1,4 +1,4 @@
-export class Details {
+export interface Movie {
   'adult': boolean;
   'budget': number;
   'genres': object;
@@ -8,11 +8,7 @@ export class Details {
   'overview': string;
   'revenue': number;
   'runtime': number;
-   'status': string;
+  'status': string;
   'title': string;
 
-
-  constructor(values: object = {}) {
-    Object.assign(this, values);
-  }
 }

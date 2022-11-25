@@ -29,6 +29,7 @@ import {
   MatFormFieldModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     DateFormat,
     FilterPipe,
-    TrailerComponent
+    TrailerComponent,
+    WatchlistComponent
   ],
   imports: [
     HttpClientModule,

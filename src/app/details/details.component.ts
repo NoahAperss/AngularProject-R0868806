@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {RestApiService} from '../shared/rest-api.service';
 import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {TrailerComponent} from '../trailer/trailer.component';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -13,11 +14,19 @@ export class DetailsComponent implements OnInit {
   movieId = this.router.snapshot.params['movie-id'];
   MovieDetails: any = {};
   innerWidth: any;
+  watchList: any;
+
+  saveToWatchList() {
+    let data = {
+     id: this.movieId };
+    localStorage.setItem('watchList' , JSON.stringify(data))
+  }
 
   constructor(
     public router: ActivatedRoute,
     public restApi: RestApiService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private httpClient: HttpClient
   ) {
   }
 
@@ -27,6 +36,8 @@ export class DetailsComponent implements OnInit {
       this.MovieDetails = data;
     });
   }
+
+
 
   openDialog(): void {
     const dialogConfig = new MatDialogConfig();
